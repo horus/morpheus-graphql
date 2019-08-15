@@ -87,3 +87,17 @@ executables:
       - text
       - wai
       - warp
+
+benchmarks:
+  convert-benchmarks:
+    main: Main.hs
+    source-dirs: benchmark
+    ghc-options:
+      -threaded
+      -rtsopts
+      -Wall
+    dependencies:
+      - base >= 4.7 && < 5
+      - criterion
+      - morpheus-graphql
+      - text
