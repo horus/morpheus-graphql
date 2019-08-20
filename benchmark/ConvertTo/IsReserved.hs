@@ -7,10 +7,10 @@ import qualified Data.Text as T
 
 convertToJSONName :: Text -> Text
 convertToJSONName hsName
-  | not (T.null hsName) && isReserved name && (lastChar == '\'') = name
+  | not (T.null hsName) && isReserved name && (T.last hsName == '\'') = name
   | otherwise = hsName
   where
-    (name, lastChar) = (T.init hsName, T.last hsName)
+    name = T.init hsName
 
 convertToHaskellName :: Text -> Text
 convertToHaskellName name
